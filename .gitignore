@@ -1,0 +1,18 @@
+secrets.tfvars
+.terraform
+.idea
+*.iml
+
+# css build
+assets/css/
+assets/node_modules/
+assets/package-lock.json
+
+# dev build
+index.html
+!assets/index.html
+
+# elm build artifacts
+elm-stuff/
+dist/
+assets/elm.min.js

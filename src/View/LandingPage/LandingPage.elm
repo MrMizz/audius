@@ -2,7 +2,8 @@ module View.LandingPage.LandingPage exposing (view)
 
 import Html exposing (Html)
 import Html.Attributes exposing (class)
-import Msg.Msg exposing (Msg)
+import Html.Events exposing (onClick)
+import Msg.Msg exposing (Msg(..))
 import View.Hero
 
 
@@ -19,6 +20,10 @@ body =
         [ Html.div
             [ class "has-text-centered"
             ]
-            [ Html.text "Landing Page . . . "
+            [ Html.button
+                [ onClick AudiusGet
+                ]
+                [ Html.text "fire off request"
+                ]
             ]
         ]

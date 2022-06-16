@@ -2,6 +2,7 @@ module Model.State exposing (State(..), href, parse)
 
 import Html
 import Html.Attributes
+import Http.Audius.Response as Get
 import Url
 import Url.Parser as UrlParser
 
@@ -9,7 +10,9 @@ import Url.Parser as UrlParser
 type State
     = LandingPage
     | About
+    | Audius Get.Response
     | Error String
+
 
 
 urlParser : UrlParser.Parser (State -> c) c
@@ -18,6 +21,7 @@ urlParser =
         [ UrlParser.map LandingPage UrlParser.top
         , UrlParser.map LandingPage (UrlParser.s "welcome")
         , UrlParser.map About (UrlParser.s "about")
+        -- , UrlParser.map Audius (UrlParser.s "audius")
         ]
 
 
@@ -49,6 +53,10 @@ path state =
 
         Error _ ->
             "#/invalid"
+
+        Audius _ ->
+            "#/audius"
+
 
 
 href : State -> Html.Attribute msg

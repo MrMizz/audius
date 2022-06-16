@@ -14,13 +14,13 @@ type State
     | Error String
 
 
-
 urlParser : UrlParser.Parser (State -> c) c
 urlParser =
     UrlParser.oneOf
         [ UrlParser.map LandingPage UrlParser.top
         , UrlParser.map LandingPage (UrlParser.s "welcome")
         , UrlParser.map About (UrlParser.s "about")
+
         -- , UrlParser.map Audius (UrlParser.s "audius")
         ]
 
@@ -56,7 +56,6 @@ path state =
 
         Audius _ ->
             "#/audius"
-
 
 
 href : State -> Html.Attribute msg

@@ -5,6 +5,7 @@ import Http.Audius.Response as Audius
 import Json.Decode as Decode
 import Msg.Msg exposing (Msg(..))
 
+
 url : String
 url =
     "https://discoveryprovider.audius.co/v1/tracks/trending"
@@ -21,10 +22,10 @@ trackDecoder =
     Decode.map Audius.Track
         (Decode.field "title" Decode.string)
 
+
 get : Cmd Msg
 get =
     Http.get
         { url = url
         , expect = Http.expectJson AudiusGetResponse responseDecoder
         }
-

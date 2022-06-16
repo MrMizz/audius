@@ -67,7 +67,6 @@ update msg model =
                     , Cmd.none
                     )
 
-
                 Err error ->
                     let
                         message =
@@ -93,12 +92,6 @@ update msg model =
 
 
 
-
-
-
-
-
-
 -- VIEW
 
 
@@ -118,13 +111,11 @@ view model =
 
                 Audius response ->
                     Html.div
-                        [
-                        ]
-                        ( List.map
-                            (\track -> Html.div [] [ Html.text track.title])
+                        []
+                        (List.map
+                            (\track -> Html.div [] [ Html.text track.title ])
                             response.data
                         )
-
     in
     { title = "Responsive Elm"
     , body =
